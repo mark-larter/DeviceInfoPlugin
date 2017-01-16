@@ -118,17 +118,19 @@ namespace Plugin.DeviceInfo
         }
 
 #if WINDOWS_APP
-        /// <summary>
-        /// Gets Idiom of Device
-        /// </summary>
+        /// <inheritdoc/>
         public Idiom Idiom => Idiom.Tablet;
    
 #else
-        /// <summary>
-        /// Gets Idiom of Device
-        /// </summary>
+        /// <inheritdoc/>
         public Idiom Idiom => Idiom.Phone;
 
 #endif
+
+        /// <inheritdoc/>
+        public bool IsSimulated
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

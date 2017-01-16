@@ -12,7 +12,7 @@ Device Info Readme
 ## Ensure you install the NuGet into ALL projects
 
 ## Release Notes
-[2.1.0]
+[2.1.1]
 * Fix UWP Version code
 * Add more Windows Platforms
 * Add Idiom

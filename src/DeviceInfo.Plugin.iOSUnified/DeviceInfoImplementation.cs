@@ -20,7 +20,8 @@
 using Plugin.DeviceInfo.Abstractions;
 using UIKit;
 using System;
-
+using ObjCRuntime;
+using Platform = Plugin.DeviceInfo.Abstractions.Platform;
 
 namespace Plugin.DeviceInfo
 {
@@ -47,6 +48,7 @@ namespace Plugin.DeviceInfo
 
             return appId;
         }
+
         /// <inheritdoc/>
         public string Id
         {
@@ -56,11 +58,13 @@ namespace Plugin.DeviceInfo
                 return UIDevice.CurrentDevice.IdentifierForVendor.AsString();
             }
         }
+
         /// <inheritdoc/>
         public string Model
         {
             get { return UIDevice.CurrentDevice.Model; }
         }
+
         /// <inheritdoc/>
         public string Version
         {
@@ -89,6 +93,7 @@ namespace Plugin.DeviceInfo
             }
         }
 
+        /// <inheritdoc/>
         public Idiom Idiom
         {
             get
@@ -108,5 +113,7 @@ namespace Plugin.DeviceInfo
                 }
             }
         }
+        /// <inheritdoc/>
+        public bool IsSimulated => Runtime.Arch == Arch.SIMULATOR;
     }
 }

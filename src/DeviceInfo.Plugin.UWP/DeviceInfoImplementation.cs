@@ -90,8 +90,6 @@ namespace Plugin.DeviceInfo
         {
             get
             {
-
-
                 switch (AnalyticsInfo.VersionInfo.DeviceFamily)
                 {
                     case "Windows.Mobile":
@@ -111,6 +109,7 @@ namespace Plugin.DeviceInfo
                 }
             }
         }
+
         /// <inheritdoc/>
         public Version VersionNumber
         {
@@ -127,11 +126,12 @@ namespace Plugin.DeviceInfo
             }
         }
 
+        /// <inheritdoc/>
         public Idiom Idiom
         {
             get
             {
-               switch(Platform)
+                switch (Platform)
                 {
                     case Abstractions.Platform.Windows:
                         return Idiom.Desktop;
@@ -144,6 +144,12 @@ namespace Plugin.DeviceInfo
 
                 }
             }
+        }
+
+        /// <inheritdoc/>
+        public bool IsSimulated
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }

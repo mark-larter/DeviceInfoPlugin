@@ -50,6 +50,7 @@ namespace Plugin.DeviceInfo
         }
 
         string id = string.Empty;
+
         /// <inheritdoc/>
         public string Id
         {
@@ -75,6 +76,7 @@ namespace Plugin.DeviceInfo
                 return id;
             }
         }
+
         /// <inheritdoc/>
         public string Model => Build.Model;
 
@@ -102,6 +104,7 @@ namespace Plugin.DeviceInfo
 
         const int TabletCrossover = 600;
 
+        /// <inheritdoc/>
         public Idiom Idiom
         {
             get
@@ -113,6 +116,17 @@ namespace Plugin.DeviceInfo
                 int minWidthDp = CrossCurrentActivity.Current.Activity.Resources.Configuration.SmallestScreenWidthDp;
 
                 return  minWidthDp >= TabletCrossover ? Idiom.Tablet : Idiom.Phone;
+            }
+        }
+
+        /// <inheritdoc/>
+        public bool IsSimulated
+        {
+            get
+            {
+                var fp = Build.Fingerprint;
+                return !string.IsNullOrWhiteSpace(fp) &&
+                       (fp.Contains("vbox") || fp.Contains("generic") || fp.Contains("vsemu"));
             }
         }
     }

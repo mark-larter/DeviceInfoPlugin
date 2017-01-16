@@ -101,9 +101,13 @@ namespace Plugin.DeviceInfo
             }
         }
 
-        /// <summary>
-        /// Gets Idiom of Device
-        /// </summary>
+        /// <inheritdoc/>
         public Idiom Idiom => Idiom.Phone;
+
+        /// <inheritdoc/>
+        public bool IsSimulated
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
