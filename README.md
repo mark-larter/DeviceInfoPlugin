@@ -96,6 +96,17 @@ public enum Platform
 }
 ```
 
+**IsSimulated**
+```csharp
+/// <summary>
+/// Get whether the device is simulated.
+/// </summary>
+bool IsSimulated { get; }
+```
+
+```csharp
+Returns true if the device is running on emulator, otherwise false.
+```
 
 #### Contributions
 Contributions are welcome! If you find a bug please report it and if you want a feature please report it.

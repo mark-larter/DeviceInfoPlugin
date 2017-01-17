@@ -98,7 +98,7 @@ namespace Plugin.DeviceInfo
         {
             get
             {
-                switch(UIDevice.CurrentDevice.UserInterfaceIdiom)
+                switch (UIDevice.CurrentDevice.UserInterfaceIdiom)
                 {
                     case UIUserInterfaceIdiom.Pad:
                         return Idiom.Tablet;
@@ -113,7 +113,18 @@ namespace Plugin.DeviceInfo
                 }
             }
         }
+
+        private bool? isSimulated;
+
         /// <inheritdoc/>
-        public bool IsSimulated => Runtime.Arch == Arch.SIMULATOR;
+        public bool IsSimulated
+        {
+            get
+            {
+                if (isSimulated.HasValue) return isSimulated.Value;
+                isSimulated = Runtime.Arch == Arch.SIMULATOR;
+                return isSimulated.Value;
+            }
+        }
     }
 }

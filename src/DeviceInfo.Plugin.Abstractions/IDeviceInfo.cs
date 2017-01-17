@@ -75,7 +75,7 @@ namespace Plugin.DeviceInfo.Abstractions
         /// <summary>
         /// Get whether the device is simulated.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><code>true</code> if the device is running on emulator, otherwise <c>false</c>.</returns>
         bool IsSimulated { get; }
 
     }

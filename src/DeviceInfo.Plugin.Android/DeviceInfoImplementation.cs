@@ -119,14 +119,17 @@ namespace Plugin.DeviceInfo
             }
         }
 
+        private bool? isSimulated;
         /// <inheritdoc/>
         public bool IsSimulated
         {
             get
             {
+                if (isSimulated.HasValue) return isSimulated.Value;
                 var fp = Build.Fingerprint;
-                return !string.IsNullOrWhiteSpace(fp) &&
-                       (fp.Contains("vbox") || fp.Contains("generic") || fp.Contains("vsemu"));
+                isSimulated = !string.IsNullOrWhiteSpace(fp) &&
+                              (fp.Contains("vbox") || fp.Contains("generic") || fp.Contains("vsemu"));
+                return isSimulated.Value;
             }
         }
     }
